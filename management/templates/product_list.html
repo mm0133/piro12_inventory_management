@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br/>
+<div class="row row-cols-1 row-cols-md-3">
+
+{% for product in products %}
+
+  <div class="col mb-4">
+    <div class="card" style="">
+
+
+      <div class="card-body">
+      <a href="/{{ product.pk }}/" style="color:black; text-decoration: none">
+        <div style="text-align: center">
+          {% if product.image%}
+            <img src="{{ product.image.url }}" class="card-img-top" style="height: 200px; max-width:250px">
+          {% endif %}
+        </div>
+        <div>
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">가격:{{ product.price }}</p>
+        <p class="card-text">남은수량:{{ product.number }}</p>
+            </div>
+      </a>
+
+
+        <div>
+            <br/>
+                <button  onclick="location.href='/{{ product.id}}/plus/'">+</button>
+                <button  onclick="location.href='/{{ product.id}}/minus/'">-</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{%block content %}
+
+<form action="/ccreate/{{ client.id }}/" method="POST">
+{% csrf_token %}
+    <h1>거래처수정</h1>
+  <div class="form-group">
+    <label for="title">이름:</label>
+    <input type="text" class="form-control" name="name"  value="{{client.name}}" >
+  </div>
+
+
+  <div class="form-group">
+    <label for="phone">전화번호:</label>
+    <input type="text" class="form-control" name="phone"  value='{{ client.phone }}'>
+  </div>
+
+    <div class="form-group">
+    <label for="adress">주소:</label>
+    <input type="text" class="form-control" name="adress"  value='{{ client.adress }}'>
+  </div>
+
+
+
+        <div><button class="btn btn-primary" type="submit">수정</button></div>
+
+</form>
+{% endblock %}

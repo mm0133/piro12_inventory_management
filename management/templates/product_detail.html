@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div style="display: inline-block;  text-align: center">
+        <div>
+            <div   style="border: 1px solid black; width: 600px; height: auto; margin: 20px">
+                <div>
+                    {%if Product.image%}
+                    <img src="{{ Product.image.url }}" style="height: 250px; width:auto" />
+                    {% endif %}
+                </div>
+
+                <div style="text-align: initial;margin: 50px">
+
+                <div>
+                    <h1>{{ Product.name }}</h1>
+                </div>
+                    <br/>
+                <div>
+                    가격:{{ Product.price }}
+                </div>
+                <br/>
+                <div>
+                    남은수량:{{ Product.number }}
+                </div>
+                <br/>
+                <div>
+                    제품설명:{{ Product.content }}
+
+                </div>
+                    <br/>
+                    <div>
+                        <a href="/client/{{ Product.client.id }}/"><h6>거래처:{{ Product.client.name }}</h6></a>
+                    </div>
+                    </div>
+
+
+            </div>
+        </div>
+        <div>
+            <button onclick="location.href='/pcreate/{{ Product.id }}/'">수정</button>
+            <button onclick="location.href='/{{ Product.id}}/delete/'">삭제</button>
+            <button onclick="location.href='{% url 'product-list' %}'">목록</button>
+            </div>
+    </div>
+
+{% endblock %}

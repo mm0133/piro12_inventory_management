@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{%block content %}
+
+<form action="{% url 'create-client' %}" method="POST">
+{% csrf_token %}
+    <h1>거래처등록</h1>
+  <div class="form-group">
+    <label for="title">이름:</label>
+    <input type="text" class="form-control" name="name"  placeholder="" >
+  </div>
+
+
+  <div class="form-group">
+    <label for="price">전화번호:</label>
+    <input type="text" class="form-control" name="phone"  placeholder="">
+  </div>
+
+    <div class="form-group">
+    <label for="title">주소:</label>
+    <input type="text" class="form-control" name="adress"  placeholder="">
+  </div>
+
+
+
+        <div><button class="btn btn-primary" type="submit">등록</button></div>
+
+</form>
+{% endblock %}

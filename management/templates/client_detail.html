@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div>
+            <div   style="border: 1px solid black; width: 720px;  margin: 20px">
+                <div>
+                    <img src="" />
+                </div>
+
+                <div>
+                    <p>{{Client.name}}</p>
+                </div>
+                <div>
+                    전화번호:{{Client.phone}}
+                </div>
+                <div>
+                    주소:{{Client.adress}}
+                </div>
+                <hr/>
+                <div>
+                    <div>거래상품 목록</div>
+                    {% for product in products %}
+                        {% if product.client == Client %}
+                            <div><a href="/{{ product.id }}">{{product.name}}</a></div>
+                        {% endif%}
+                    {% endfor %}
+
+
+
+                </div>
+
+
+            </div>
+            <button onclick="location.href='/ccreate/{{ Client.id }}/'">수정</button>
+            <button onclick="location.href='/client/{{ Client.id}}/delete/'">삭제</button>
+            <button onclick="location.href='{% url 'client-list' %}'">목록</button>
+        </div>
+    </div>
+
+
+
+{% endblock %}

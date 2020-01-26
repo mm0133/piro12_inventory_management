@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <br/>
+
+<div class="row row-cols-1 row-cols-md-3">
+    {% for client in clients %}
+        <a href="/client/{{ client.id }}/" style="color:black; text-decoration: none">
+  <div class="col mb-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" style="color: #3875d7">{{client.name}}</h5>
+        <p class="card-text">{{ client.phone }}</p>
+        <p class="card-text">{{client.adress}}</p>
+      </div>
+    </div>
+  </div>
+        </a>
+    {% endfor %}
+ </div>
+    </a>
+
+
+{% endblock %}
